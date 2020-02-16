@@ -54,7 +54,18 @@
   <app-code-sample [code]="disabledTs"></app-code-sample>
 
   <mat-form-field>
-    <ngx-mat-file-input formControlName="disabledfile" placeholder="Disabled Input"></ngx-mat-file-input>
+    <mat-label>Disabled Input</mat-label>
+    <ngx-mat-file-input formControlName="disabledfile"></ngx-mat-file-input>
+    <mat-icon matSuffix>folder</mat-icon>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Disabled Input (fill)</mat-label>
+    <ngx-mat-file-input formControlName="disabledfileFill"></ngx-mat-file-input>
+    <mat-icon matSuffix>folder</mat-icon>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Disabled Input (outline)</mat-label>
+    <ngx-mat-file-input formControlName="disabledfileOutline"></ngx-mat-file-input>
     <mat-icon matSuffix>folder</mat-icon>
   </mat-form-field>
 

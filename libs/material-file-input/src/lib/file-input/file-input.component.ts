@@ -87,8 +87,8 @@ export class FileInputComponent extends FileInputMixinBase implements MatFormFie
   get disabled(): boolean {
     return this._elementRef.nativeElement.disabled;
   }
-  set disabled(dis: boolean) {
-    this.setDisabledState(coerceBooleanProperty(dis));
+  set disabled(disabled: boolean) {
+    this.setDisabledState(coerceBooleanProperty(disabled));
     this.stateChanges.next();
   }
 
@@ -120,6 +120,7 @@ export class FileInputComponent extends FileInputMixinBase implements MatFormFie
       this.ngControl.valueAccessor = this;
     }
     fm.monitor(_elementRef.nativeElement, true).subscribe(origin => {
+      if (this.disabled) return;
       this.focused = !!origin;
       this.stateChanges.next();
     });
@@ -178,7 +179,10 @@ export class FileInputComponent extends FileInputMixinBase implements MatFormFie
   }
 
   setDisabledState(isDisabled: boolean): void {
+    console.log('isDisabled', isDisabled);
+
     this._renderer.setProperty(this._elementRef.nativeElement, 'disabled', isDisabled);
+    // this._renderer.setAttribute(this._elementRef.nativeElement, 'tabindex', isDisabled? '-1' : '0');
   }
 
   ngOnInit() {

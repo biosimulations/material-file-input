@@ -25,6 +25,8 @@ export class UsageComponent implements OnInit {
       acceptfile: [],
       requiredfile: [{ value: undefined, disabled: false }, [Validators.required, FileValidator.maxContentSize(this.maxSize)]],
       disabledfile: [{ value: undefined, disabled: true }],
+      disabledfileFill: [{ value: undefined, disabled: true }],
+      disabledfileOutline: [{ value: undefined, disabled: true }],
       multiplefile: [{ value: undefined, disabled: false }],
       errorStateFile: []
     });
@@ -80,7 +82,9 @@ export class UsageComponent implements OnInit {
 
     ngOnInit() {
       this.formDoc = this._fb.group({
-        disabledfile: [{ value: undefined, disabled: true }]
+        disabledfile: [{ value: undefined, disabled: true }],
+        disabledfileFill: [{ value: undefined, disabled: true }],
+        disabledfileOutline: [{ value: undefined, disabled: true }]
       });
     }`;
   }
